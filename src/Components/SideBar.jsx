@@ -15,7 +15,7 @@ const SideBar = ({
 }) => {
 
   const sizesArray = [
-    '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '44', '45', '46', '47', '48', '49',
+    '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45',  '46', '47', '48', '49',
   ];
 
   const handleInput = (e) => {
@@ -61,9 +61,7 @@ const SideBar = ({
   return (
     <div className="flex flex-row ">
       <div
-        className={`px-8 ${
-          side ? "flex" : "hidden"
-        } flex-col gap-4 md:flex  bg-slate-800 text-white md:w-[250px] w-full overflow-hidden`}
+        className={`px-8  ${side ? "flex" : "hidden" } flex-col gap-4 md:flex  bg-slate-800 text-white md:w-[250px] w-full overflow-hidden`}
       >
         <div className="my-5  ">
           <button
