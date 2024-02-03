@@ -1,16 +1,43 @@
-import React from 'react'
+import React, { useState } from 'react'
 import SideBar from '../Components/SideBar'
 import ProductCard from '../Components/ProductCard'
 import { products } from '../assets/Products'
 
 const ShopPage = () => {
+
+  const [priceRange, setPriceRange] = useState({
+    min:300,
+    max:5000
+  });
+  const [categories, setCategories] = useState([]);
+  const [sizes, setSizes] = useState([]);
+
+  const filteredProducts = products.filter((product) => {
+    const categoryMatch = categories.length === 0 || categories.includes(product.category);
+    const sizeMatch = sizes.length === 0 || product.size.some((size) => sizes.includes(size));
+    const priceMatch = product.price >= priceRange.min && product.price <= priceRange.max;
+    // console.log(categories, sizes, priceRange);
+  
+    return categoryMatch && sizeMatch && priceMatch;
+  });
+
+  
+  
+  
   return (
     <div className='flex '>
-      <SideBar/>
+      <SideBar 
+        priceRange={priceRange}
+        setPriceRange={setPriceRange}
+        categories={categories}
+        setCategories={setCategories}
+        sizes={sizes}
+        setSizes={setSizes}
+      />
       
-      <div className='p-10 flex flex-wrap gap-5 bg-slate-500 justify-center w-full'>
+      <div className='md:p-10 p-7 flex flex-wrap gap-5 bg-slate-500 justify-center w-full'>
         {
-           products? products.map((product, index)=>(
+           filteredProducts.length>0? filteredProducts.map((product, index)=>(
 
                 <ProductCard product={product} key={index}/>
             )):
