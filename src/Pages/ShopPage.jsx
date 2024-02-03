@@ -16,7 +16,6 @@ const ShopPage = () => {
     const categoryMatch = categories.length === 0 || categories.includes(product.category);
     const sizeMatch = sizes.length === 0 || product.size.some((size) => sizes.includes(size));
     const priceMatch = product.price >= priceRange.min && product.price <= priceRange.max;
-    // console.log(categories, sizes, priceRange);
   
     return categoryMatch && sizeMatch && priceMatch;
   });

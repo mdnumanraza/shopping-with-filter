@@ -157,7 +157,7 @@ const SideBar = ({
       </div>
 
       <div
-        className={` px-2 flex flex-col gap-4 md:hidden  bg-slate-800 text-white w-full`}
+        className={` px-2 flex flex-col gap-4 md:hidden  bg-slate-800 text-white  ${!side?'w-full':''}`}
       >
         <div
           className="flex my-5 cursor-pointer px-2"
