@@ -45,25 +45,25 @@ const SideBar = ({
     });
   };
 
+
   const clearFilter = ()=>{
     setCategories([]);
     setPriceRange({min:300,max:5000});
     setSizes([]);
   }
   
-  
-
+  //logic for responsive menu icon
   const [side, setSide] = useState(false);
   const toggleSideBar = () => {
     setSide(!side);
   };
 
   return (
-    <>
+    <div className="flex flex-row ">
       <div
         className={`px-8 ${
           side ? "flex" : "hidden"
-        } flex-col gap-4 md:flex bg-slate-800 text-white w-[300px]`}
+        } flex-col gap-4 md:flex  bg-slate-800 text-white md:w-[250px] w-full overflow-hidden`}
       >
         <div className="my-5  ">
           <button
@@ -157,16 +157,16 @@ const SideBar = ({
       </div>
 
       <div
-        className={` px-2 flex flex-col gap-4 md:hidden  bg-slate-800 text-white w-[70px]`}
+        className={` px-2 flex flex-col gap-4 md:hidden  bg-slate-800 text-white w-full`}
       >
         <div
-          className="flex justify-center mt-5 cursor-pointer px-2"
+          className="flex my-5 cursor-pointer px-2"
           onClick={toggleSideBar}
         >
           {side ? <IoClose size={30} /> : <FiMenu size={30} />}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -25,7 +25,7 @@ const ShopPage = () => {
   
   
   return (
-    <div className='flex '>
+    <div className='flex flex-col md:flex-row '>
       <SideBar 
         priceRange={priceRange}
         setPriceRange={setPriceRange}
